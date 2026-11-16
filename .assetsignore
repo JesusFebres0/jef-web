@@ -1,4 +1,8 @@
+# Nada de la carpeta de Git ni de caché local debe ser público
+.git
+.gitignore
+.wrangler
 README.md
 wrangler.jsonc
-.deployed
+.assetsignore
 vialta-web.zip
