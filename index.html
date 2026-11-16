@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JeF — Transporte de pasajeros y carga</title>
+<meta name="description" content="Servicio de transporte de pasajeros, carga y mensajería en Monagas, Venezuela. Pide tu presupuesto sin compromiso.">
+<meta name="theme-color" content="#FBFBFC">
+<link rel="stylesheet" href="styles.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JeF — Tu transporte, resuelto">
+<meta property="og:description" content="Transporte de pasajeros, carga y mensajería en Monagas, Venezuela. Pide tu presupuesto sin compromiso.">
+<meta property="og:locale" content="es_VE">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231B4DF5'/%3E%3Cpath d='M8 9h4.4l3.6 10.2L19.6 9H24l-6.1 15h-3.8z' fill='%23fff'/%3E%3C/svg%3E">
+</head>
+<body>
+<svg class="svg-defs" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <!-- Logo de WhatsApp (glifo insertado; uso <use> para reutilizarlo en todos los botones) -->
+        <symbol id="wa" viewBox="0 32 442 448"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></symbol>
+      </svg>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#inicio" aria-label="JeF, inicio">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 6h4l3 9 3-9h4l-5 13h-4L5 6Z" fill="currentColor"/></svg>
+      </span>
+      JeF
+    </a>
+
+    <nav class="site-nav" aria-label="Navegación principal">
+      <a href="#servicios">Servicios</a>
+      <a href="maquinaria.html">Maquinaria</a>
+      <a href="equipo.html">Equipo</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#faq">Preguntas</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn-primary btn-sm" href="#presupuesto">
+        Pedir presupuesto
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileNav">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path class="nav-ico nav-ico-1" d="M4 7h16" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path class="nav-ico nav-ico-2" d="M4 12h16" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path class="nav-ico nav-ico-3" d="M4 17h16" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#servicios">Servicios</a>
+    <a href="maquinaria.html">Maquinaria</a>
+    <a href="equipo.html">Equipo</a>
+    <a href="#presupuesto">Pedir presupuesto</a>
+    <a href="#faq">Preguntas frecuentes</a>
+    <a class="btn btn-wa" href="#presupuesto" data-contact="whatsapp-link" data-wa-text="Hola, me gustaría pedir un presupuesto de transporte." target="_blank" rel="noopener"><svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true" class="btn-ic"><use href="#wa"/></svg>Escribir por WhatsApp</a>
+  </div>
+</header>
+
+<main id="contenido" tabindex="-1">
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="inicio">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="pulse" aria-hidden="true"></span> Transporte de pasajeros y carga · Monagas, Venezuela</span>
+        <h1><span id="saludo">Tu transporte,</span><br><span class="mark">resuelto.</span></h1>
+        <p class="lede">Servicio de transporte de pasajeros, carga y mensajería en Monagas, Venezuela. [Completa aquí tu promesa principal: qué recibirá el cliente y por qué confiar en ti.]</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#presupuesto">
+            Calcular mi presupuesto
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-secondary" href="tel:+584141234567" data-contact="phone-link">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4h3l1.5 4-2 1.5a10 10 0 0 0 5 5l1.5-2L20 14v3a2 2 0 0 1-2.2 2A14 14 0 0 1 5 6.2 2 2 0 0 1 7 4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            <span data-contact="phone">+58 414 123 4567</span>
+          </a>
+        </div>
+
+        <ul class="hero-trust">
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> [Ventaja 1]</li>
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> [Ventaja 2]</li>
+          <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> [Ventaja 3]</li>
+        </ul>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hv-card">
+          <svg class="map-svg" viewBox="0 0 520 470" fill="none" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+                <path d="M44 0H0v44" stroke="rgba(255,255,255,.055)" stroke-width="1"/>
+              </pattern>
+              <linearGradient id="routeGrad" x1="70" y1="380" x2="450" y2="80" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#2BE0B7"/>
+                <stop offset=".55" stop-color="#6E8BFF"/>
+                <stop offset="1" stop-color="#A9B9FF"/>
+              </linearGradient>
+              <radialGradient id="glowA" cx=".5" cy=".5" r=".5">
+                <stop stop-color="#2BE0B7" stop-opacity=".55"/>
+                <stop offset="1" stop-color="#2BE0B7" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="glowB" cx=".5" cy=".5" r=".5">
+                <stop stop-color="#6E8BFF" stop-opacity=".6"/>
+                <stop offset="1" stop-color="#6E8BFF" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="520" height="470" fill="url(#grid)"/>
+            <circle cx="70" cy="380" r="56" fill="url(#glowA)"/>
+            <circle cx="450" cy="80" r="60" fill="url(#glowB)"/>
+            <path class="route" d="M70 380c64-26 56-104 128-118s104 56 146-18 44-104 106-164"
+                  stroke="url(#routeGrad)" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="9 15"/>
+            <circle cx="70" cy="380" r="7" fill="#0B0E14" stroke="#2BE0B7" stroke-width="3"/>
+            <circle cx="450" cy="80" r="7" fill="#0B0E14" stroke="#A9B9FF" stroke-width="3"/>
+            <circle cx="198" cy="262" r="3.5" fill="rgba(255,255,255,.5)"/>
+            <circle cx="344" cy="244" r="3.5" fill="rgba(255,255,255,.5)"/>
+          </svg>
+
+          <span class="hv-label"><span class="dot"></span> Ruta activa</span>
+
+          <div class="float-card fc-1">
+            <span class="fc-icon fc-icon--green">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <div>
+              <strong>Reserva confirmada</strong>
+              <span>Mañana · 08:30</span>
+            </div>
+          </div>
+
+          <div class="float-card fc-2">
+            <span class="fc-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v4.2l2.6 1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            <div>
+              <strong>Llegada estimada</strong>
+              <span>34 min · tráfico ligero</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CIFRAS ===================== -->
+  <section class="stats" aria-label="Datos del servicio">
+    <div class="wrap stats-grid">
+        <!-- DATOS A RELLENAR: años de experiencia, n.º de servicios, % de puntualidad y horario. Solo están de plantilla. -->
+      <div class="stat"><b>[N]</b><span>años de experiencia</span></div>
+      <div class="stat"><b>[N]+</b><span>servicios completados</span></div>
+      <div class="stat"><b>[N] %</b><span>de puntualidad</span></div>
+      <div class="stat"><b>[Horario]</b><span>de atención al cliente</span></div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICIOS ===================== -->
+  <section class="section" id="servicios">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Servicios</span>
+        <h2>Un vehículo para cada necesidad</h2>
+        <p>Elige el servicio que encaja con tu viaje. Si dudas entre dos, te lo decimos claro: nos cuentas el caso y te proponemos la opción más razonable.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service reveal">
+                    <div class="service-head">
+            <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M2.5 9.5 12 5l9.5 4.5-9.5 4.5-9.5-4.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M6.5 11.8V15c0 1.1 2.5 2.6 5.5 2.6s5.5-1.5 5.5-2.6v-3.2" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          </span>
+                      <h3>[Servicio 1]</h3>
+          </div>
+          <p>[Describe el servicio 1: qué incluye, cobertura y para quién. Si no lo ofreces, reutiliza la tarjeta para otro servicio con otro icono.]</p>
+          <span class="service-meta">[Etiqueta 1]</span>
+        </article>
+
+        <article class="service reveal">
+                    <div class="service-head">
+            <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="13" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7M3 12h18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M10 12v2.5h4V12" stroke="currentColor" stroke-width="1.7"/></svg>
+          </span>
+                      <h3>[Servicio 2]</h3>
+          </div>
+          <p>[Describe el servicio 2: qué incluye, cobertura y para quién.]</p>
+          <span class="service-meta">[Etiqueta 2]</span>
+        </article>
+
+        <article class="service reveal">
+                    <div class="service-head">
+            <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 9.5 12 4l8 5.5V19a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 19V9.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9.5 20.5v-6h5v6" stroke="currentColor" stroke-width="1.7"/></svg>
+          </span>
+                      <h3>[Servicio 3]</h3>
+          </div>
+          <p>[Describe el servicio 3: qué incluye, cobertura y para quién.]</p>
+          <span class="service-meta">[Etiqueta 3]</span>
+        </article>
+
+        <article class="service reveal">
+                    <div class="service-head">
+            <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 7.5h10v9H3zM13 10.5h4.5l3.5 3.5v2.5h-8" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="7" cy="18" r="1.8" stroke="currentColor" stroke-width="1.7"/><circle cx="17.5" cy="18" r="1.8" stroke="currentColor" stroke-width="1.7"/></svg>
+          </span>
+                      <h3>[Servicio 4]</h3>
+          </div>
+          <p>[Describe el servicio 4: qué incluye, cobertura y para quién. Elimina esta tarjeta si tu negocio tiene solo 3 servicios.]</p>
+          <span class="service-meta">[Etiqueta 4]</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CÓMO FUNCIONA ===================== -->
+  <section class="section band-soft" id="como-funciona">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Cómo funciona</span>
+        <h2>Tres pasos y a la carretera</h2>
+        <p>Sin formularios interminables ni llamadas a medias. Nos dices lo esencial y nos encargamos del resto.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal">
+          <span class="step-num">01</span>
+          <h3>Cuéntanos tu ruta</h3>
+          <p>Rellena el formulario o escríbenos por WhatsApp con origen, destino y fecha. Tardas menos de un minuto.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-num">02</span>
+          <h3>Recibe el precio cerrado</h3>
+          <p>Te respondemos en menos de [X horas laborables] con un importe final. [Detalla aquí qué incluye y qué no.]</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-num">03</span>
+          <h3>Confirma y listo</h3>
+          <p>Conductor y vehículo asignados con antelación. Pagas con efectivo, Pago Móvil o transferencia, cuando quieras.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== POR QUÉ ===================== -->
+  <section class="dark-band" id="por-que">
+    <div class="wrap why-grid">
+      <div class="why-copy reveal">
+        <span class="kicker kicker--light">Por qué JeF</span>
+        <h2>Menos incidencias.<br>Más viajes resueltos.</h2>
+        <p>Un servicio de transporte se juzga por lo que pasa cuando algo se complica. Por eso trabajamos con margen, gente fija y precios que no se mueven.</p>
+        <a class="btn btn-ghost-light" href="#presupuesto">Calcular mi presupuesto</a>
+      </div>
+
+      <ul class="why-list">
+        <li class="why-item reveal">
+          <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M12 7.5V12l3 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+          <div>
+            <h3>Puntualidad medida</h3>
+            <p>[Tu promesa de puntualidad con un dato real: cómo lo mides, en qué periodo y qué pasa si se retrasa el servicio.]</p>
+          </div>
+        </li>
+        <li class="why-item reveal">
+          <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16v11H4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M4 11h16M8 15h3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+          <div>
+            <h3>Precio cerrado</h3>
+            <p>[Tu política de precio: qué incluye y qué no, y cómo se factura.]</p>
+          </div>
+        </li>
+        <li class="why-item reveal">
+          <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 5 6v6c0 4 3 7.2 7 9 4-1.8 7-5 7-9V6l-7-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div>
+            <h3>Vehículos revisados</h3>
+            <p>[Tu flota y seguridad: tipos de vehículos, revisiones, seguro y limpieza.]</p>
+          </div>
+        </li>
+        <li class="why-item reveal">
+          <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20 11.5a8 8 0 0 1-11.9 7L4 20l1.6-4A8 8 0 1 1 20 11.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 8.8c.4 2.6 1.9 4.2 4.4 4.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+          <div>
+            <h3>Atención directa</h3>
+            <p>[Tu atención al cliente: canales, horarios y cobertura de urgencias.]</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== PRESUPUESTO ===================== -->
+  <section class="section" id="presupuesto">
+    <div class="wrap">
+      <div class="quote-wrap reveal">
+        <div class="quote-grid">
+          <div class="quote-copy">
+            <span class="kicker">Presupuesto</span>
+            <h2>Dinos tu ruta. Te damos el precio.</h2>
+            <p>Rellena el formulario y te prepararemos un mensaje con todos los datos. Lo envías por WhatsApp o email y te contestamos en menos de [X horas laborables].</p>
+
+            <ul class="contact-list">
+              <li>
+                <a href="tel:+584141234567" data-contact="phone-link">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4h3l1.5 4-2 1.5a10 10 0 0 0 5 5l1.5-2L20 14v3a2 2 0 0 1-2.2 2A14 14 0 0 1 5 6.2 2 2 0 0 1 7 4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+                  <span data-contact="phone">+58 414 123 4567</span>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:hola@jef.com" data-contact="email-link">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="m4 7.5 8 5.5 8-5.5" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+                  <span data-contact="email">hola@jef.com</span>
+                </a>
+              </li>
+              <li>
+                <a href="#presupuesto" data-contact="whatsapp-link" data-wa-text="Hola, me gustaría pedir un presupuesto de transporte." target="_blank" rel="noopener">
+                  <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>
+                  WhatsApp directo
+                </a>
+              </li>
+              <li>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M12 7.5V12l3 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                  [Horario de atención]
+                </span>
+              </li>
+            </ul>
+
+            <p class="quote-note">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 5 6v6c0 4 3 7.2 7 9 4-1.8 7-5 7-9V6l-7-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 9v3.5M12 15.5v.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              Usamos tus datos solo para responder a tu solicitud. No los cedemos a terceros.
+            </p>
+          </div>
+
+          <div>
+            <form class="quote-form" id="quoteForm" novalidate>
+              <div class="field">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required>
+              </div>
+              <div class="field">
+                <label for="telefono">Teléfono</label>
+                <input id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" placeholder="600 000 000" required>
+              </div>
+
+              <div class="field field--full">
+                <label for="servicio">Tipo de servicio</label>
+                <select id="servicio" name="servicio" required>
+                  <option value="transporte de pasajeros">Transporte de pasajeros</option>
+                  <option value="transporte para empresas">Transporte para empresas</option>
+                  <option value="mudanza o flete">Mudanza o flete</option>
+                  <option value="mensajería">Mensajería</option>
+                  <option value="otro servicio">Otro servicio</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="origen">Origen</label>
+                <input id="origen" name="origen" type="text" placeholder="Calle o ciudad" required>
+              </div>
+              <div class="field">
+                <label for="destino">Destino</label>
+                <input id="destino" name="destino" type="text" placeholder="Calle o ciudad" required>
+              </div>
+
+              <div class="field">
+                <label for="fecha">Fecha <span class="opt">(opcional)</span></label>
+                <input id="fecha" name="fecha" type="date">
+              </div>
+              <div class="field">
+                <label for="detalle">Personas o bultos <span class="opt">(opcional)</span></label>
+                <input id="detalle" name="detalle" type="text" placeholder="2 personas · 3 maletas">
+              </div>
+
+              <div class="field field--full">
+                <label for="notas">Detalles <span class="opt">(opcional)</span></label>
+                <textarea id="notas" name="notas" rows="3" placeholder="Vuelo, hora de recogida, si hay ascensor, necesidades especiales…"></textarea>
+              </div>
+
+              <button class="btn btn-primary" type="submit">
+                Preparar mi solicitud
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <p class="form-legal">Al continuar se abrirá WhatsApp con tu mensaje ya escrito. Si lo prefieres, podrás enviarlo por email.</p>
+            </form>
+
+            <div class="form-success" id="formSuccess" role="status" tabindex="-1" hidden>
+              <span class="fs-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <h3>Tu solicitud está lista</h3>
+              <p>Envíala por WhatsApp o email. Te confirmamos el precio y la disponibilidad en menos de [X horas laborables].</p>
+              <div class="fs-actions">
+                <a class="btn btn-wa" id="waSend" href="#" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>
+                  Abrir WhatsApp
+                </a>
+                <a class="btn btn-secondary" id="mailSend" href="#">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="m4 7.5 8 5.5 8-5.5" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+                  Enviar por email
+                </a>
+              </div>
+              <button class="link-btn" id="editRequest" type="button">Volver a editar los datos</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="section band-soft" id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Preguntas frecuentes</span>
+        <h2>Lo que suelen preguntarnos</h2>
+      </div>
+
+      <div class="faq">
+        <details class="reveal">
+          <summary>¿El presupuesto tiene algún coste?<span class="plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary>
+          <p>[Indica si pedir presupuesto es gratuito y qué condiciones aplican.]</p>
+        </details>
+        <details class="reveal">
+          <summary>¿Cómo se paga el servicio?<span class="plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary>
+          <p>[Deja claro las formas de pago: efectivo, Pago Móvil, Zelle, transferencia… y condiciones de factura para empresas.]</p>
+        </details>
+        <details class="reveal">
+          <summary>¿Puedo cancelar o cambiar la reserva?<span class="plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary>
+          <p>[Define tu política de cancelación y cambios: plazos, coste y vía de contacto.]</p>
+        </details>
+        <details class="reveal">
+          <summary>¿Trabajan fuera de Monagas?<span class="plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary>
+          <p>[Define tu alcance real: municipios que cubres dentro de Monagas, rutas a otros estados y cómo pediros trayectos largos.]</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CIERRE ===================== -->
+  <section class="closing">
+    <div class="wrap">
+      <h2>¿Salimos?</h2>
+      <p>Cuéntanos tu ruta y recibe un presupuesto cerrado hoy mismo. Sin llamadas de seguimiento ni letra pequeña.</p>
+      <div class="closing-actions">
+        <a class="btn btn-primary" href="#presupuesto">Pedir presupuesto</a>
+        <a class="btn btn-secondary" href="tel:+584141234567" data-contact="phone-link">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4h3l1.5 4-2 1.5a10 10 0 0 0 5 5l1.5-2L20 14v3a2 2 0 0 1-2.2 2A14 14 0 0 1 5 6.2 2 2 0 0 1 7 4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          Llamar ahora
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#inicio" aria-label="JeF, inicio">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 6h4l3 9 3-9h4l-5 13h-4L5 6Z" fill="currentColor"/></svg>
+          </span>
+          JeF
+        </a>
+        <p>Transporte de pasajeros y carga con conductores profesionales. Presupuesto cerrado y atención directa.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explorar</h4>
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="maquinaria.html">Maquinaria</a></li>
+          <li><a href="equipo.html">Equipo</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#servicios">[Servicio 1]</a></li>
+          <li><a href="#servicios">[Servicio 2]</a></li>
+          <li><a href="#servicios">[Servicio 3]</a></li>
+          <li><a href="#servicios">[Servicio 4]</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:+584141234567" data-contact="phone-link"><span data-contact="phone">+58 414 123 4567</span><span class="small">[Horario]</span></a></li>
+          <li><a href="mailto:hola@jef.com" data-contact="email-link"><span data-contact="email">hola@jef.com</span><span class="small">[Tiempo de respuesta]</span></a></li>
+          <li><span>Monagas, Venezuela · cobertura nacional</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span data-contact="year">2026</span> JeF. Todos los derechos reservados.</span>
+      <nav aria-label="Enlaces legales">
+        <a href="legal.html">Aviso legal y privacidad</a>
+        <a href="#presupuesto">Contacto</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "JeF",
+  "description": "Servicio de transporte de pasajeros, carga y mensajería en Monagas, Venezuela. Presupuesto cerrado.",
+  "telephone": "+584141234567",
+  "email": "hola@jef.com",
+  "priceRange": "VES · USD",
+  "areaServed": "VE",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Maturín",
+    "addressRegion": "Monagas",
+    "addressCountry": "VE"
+  }
+}
+</script>
+
+  <!-- Botón flotante de WhatsApp (el href lo rellena script.js con data-contact) -->
+  <a class="btn btn-wa wa-float" href="#" data-contact="whatsapp-link" data-wa-text="Hola, me gustaría pedir un presupuesto de transporte." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <img src="img/wa-icon.webp" alt="WhatsApp" width="32" height="32" loading="lazy">
+  </a>
+
+  <!-- Botón Volver arriba (se muestra al bajar más de 300px, ver script.js) -->
+  <button class="to-top" id="toTop" type="button" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="width:22px;height:22px;"><path d="M12 19V6m0 0-6 6m6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+<script src="script.js" defer></script>
+</body>
+</html>
