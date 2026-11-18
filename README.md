@@ -14,6 +14,8 @@ para que el navegador los cacheé entre páginas; no hay nada más que enlazar.
 | `script.js` | Contacto, menú móvil, revelado al scroll y formulario (WhatsApp/email) |
 | `legal.html` | Aviso legal, privacidad y cookies (plantilla a completar) |
 | `404.html` | Página de error personalizada de Cloudflare Pages |
+| `datos/maquinaria.json` | Catálogo de unidades y equipos (se pinta en `maquinaria.html`) |
+| `datos/conductores.json` | Conductores y personal (se pinta en `equipo.html`) |
 | `_headers` | Cabeceras de seguridad y caché para Cloudflare Pages |
 
 ## Ver la web en local
@@ -110,11 +112,46 @@ WhatsApp suele convertir mejor.
   reseñas verificables (fichas de Google, mensajes reales), vuelve a añadir una sección propia;
   no publiques testimonios inventados.
 
+## Cómo añadir maquinaria o personal
+
+Las tarjetas de `maquinaria.html` y `equipo.html` se generan desde los archivos de `datos/`.
+No hace falta tocar el HTML ni el CSS: se copia un objeto, se cambian los valores y se guarda.
+
+1. Abre `datos/maquinaria.json` (o `datos/conductores.json`).
+2. Copia un objeto completo del listado y pégalo al final, separado por una coma.
+3. Cambia los valores y sube la foto a `img/` con el mismo nombre que pongas en `foto`.
+4. Guarda y recarga la web.
+
+Esquema de cada objeto:
+
+| Campo | Qué es | Ejemplo |
+| --- | --- | --- |
+| `id` | Identificador único, sin espacios ni acentos (se usa como ancla `#id`) | `"camion-350"` |
+| `nombre` | Nombre que se muestra | `"Camión 350"` |
+| `foto` | Ruta de la imagen dentro del sitio | `"img/camion-350.webp"` |
+| `alt` | Texto alternativo para accesibilidad | `"Camión 350 cargado con material"` |
+| `capacidad` | Tonelaje, puestos o rol, según el caso | `"10 toneladas"` |
+| `detalle` | Descripción breve | `"Cava abierta para material de obra."` |
+| `disponible` | `true` se muestra, `false` se oculta sin borrar | `true` |
+| `orden` | Número: menor va primero | `1` |
+
+Reglas:
+
+- **Nunca se borra una unidad retirada**: se pone `"disponible": false` y desaparece de la web.
+- Si un objeto no tiene `id`, `nombre`, `foto`, `alt`, `capacidad` o `detalle`, **se ignora solo
+  ese objeto** (los demás se muestran igual).
+- Si el archivo no se puede leer (error de coma, servidor caído), la sección muestra un aviso
+  con un botón de WhatsApp en lugar de quedarse vacía.
+- Las unidades se ordenan por `orden`; si falta, van al final.
+- El JSON-LD de `maquinaria.html` y `equipo.html` (para buscadores) es estático: al añadir una
+  unidad nueva, añade también su nombre y `#id` ahí si quieres que los buscadores la indexen.
+- Nada de teléfonos, cédulas, direcciones ni placas: esos datos no van en los JSON públicos.
+
 ## Comprobaciones antes de publicar
 
 - [ ] Teléfono, WhatsApp y email reales (y `wa.me` probado desde el móvil).
 - [ ] Nombre de marca y textos revisados.
-- [ ] Sin `[corchetes]` pendientes: ya no queda ningún `[N]`, `[X horas]` ni similar.
+- [ ] Sin `[corchetes]` pendientes en el HTML ni en `datos/*.json`.
 - [ ] Datos de empresa completos en `legal.html`.
 - [ ] Enlaces del pie y navegación sin destinos vacíos.
 - [ ] Probado en móvil (el diseño es responsive desde 360 px).

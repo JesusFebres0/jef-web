@@ -59,10 +59,13 @@
 
   /* ---------- 5) Revelado suave al entrar en pantalla ---------- */
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const items = document.querySelectorAll(".reveal");
-  if (reduced || !("IntersectionObserver" in window)) {
-    items.forEach(el => el.classList.add("is-visible"));
-  } else {
+  // Función reutilizable: las tarjetas del catálogo se inyectan después y también hay que revelarlas.
+  const observarRevelados = (raiz = document) => {
+    const items = raiz.querySelectorAll(".reveal:not(.is-visible)");
+    if (reduced || !("IntersectionObserver" in window)) {
+      items.forEach(el => el.classList.add("is-visible"));
+      return;
+    }
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -75,7 +78,8 @@
       el.style.transitionDelay = Math.min(i % 4, 3) * 60 + "ms";
       io.observe(el);
     });
-  }
+  };
+  observarRevelados();
 
   /* ---------- 7) Botón "Volver arriba" ---------- */
   const toTop = $("#toTop");
@@ -171,3 +175,96 @@
     form.hidden = false;
     $("#nombre").focus();
   });
+
+  /* ---------- 8) Catálogo desde datos/*.json ----------
+     Para añadir una unidad: edita datos/maquinaria.json o datos/conductores.json.
+     Las unidades retiradas se marcan "disponible": false (nunca se borran). */
+  const CAMPOS_OBLIGATORIOS = ["id", "nombre", "foto", "alt", "capacidad", "detalle"];
+
+  const escapar = (v) => String(v ?? "").replace(/[&<>"']/g, c => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[c]));
+
+  // Aviso con botón de WhatsApp: la sección nunca queda en blanco.
+  const avisoCatalogo = (texto) => {
+    const p = document.createElement("p");
+    p.className = "catalogo-aviso";
+    const a = document.createElement("a");
+    a.href = "https://wa.me/" + CONTACT.whatsapp + "?text=" +
+      encodeURIComponent("Hola, quiero información sobre maquinaria y transportes.");
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.textContent = "Escríbenos por WhatsApp";
+    p.append(texto + " ", a, " y te enviamos la información.");
+    return p;
+  };
+
+  // Si la foto todavía no existe, se ve un recuadro gris en vez del icono de imagen rota.
+  const marcarFotoPendiente = (img) => {
+    img.addEventListener("error", () => {
+      const caja = document.createElement("div");
+      caja.className = "foto-pendiente";
+      caja.textContent = "Foto pendiente";
+      img.replaceWith(caja);
+    }, { once: true });
+  };
+
+  const tarjetaMaquinaria = (u, i) => `
+    <article class="card reveal" id="${escapar(u.id)}">
+      <div class="card-media">
+        <img src="${escapar(u.foto)}" alt="${escapar(u.alt || u.nombre)}" width="640" height="480"${i === 0 ? "" : ' loading="lazy"'} decoding="async">
+      </div>
+      <div class="card-body">
+        <h3>${escapar(u.nombre)}</h3>
+        <p>${escapar(u.detalle)}</p>
+        <span class="card-meta">${escapar(u.capacidad)}</span>
+        <a class="btn btn-secondary btn-sm" href="index.html#presupuesto">
+          Solicitar información
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </article>`;
+
+  const tarjetaEquipo = (u, i) => `
+    <article class="card card--team reveal" id="${escapar(u.id)}">
+      <img class="avatar-photo" src="${escapar(u.foto)}" alt="${escapar(u.alt || u.nombre)}" width="200" height="200"${i === 0 ? "" : ' loading="lazy"'} decoding="async">
+      <h3>${escapar(u.nombre)}</h3>
+      <p class="team-role">${escapar(u.capacidad)}</p>
+      <p class="team-bio">${escapar(u.detalle)}</p>
+    </article>`;
+
+  async function cargarCatalogo() {
+    const contenedores = document.querySelectorAll("[data-catalogo]");
+    if (!contenedores.length) return;
+
+    await Promise.all(Array.from(contenedores).map(async (cont) => {
+      const esEquipo = cont.dataset.tipo === "equipo";
+      cont.setAttribute("aria-busy", "true");
+      try {
+        const respuesta = await fetch(cont.dataset.catalogo, { cache: "no-cache" });
+        if (!respuesta.ok) throw new Error("HTTP " + respuesta.status);
+        const datos = await respuesta.json();
+        const lista = Array.isArray(datos) ? datos : (datos.unidades || datos.conductores || []);
+        if (!Array.isArray(lista)) throw new Error("formato inesperado");
+
+        // Una entrada incompleta se descarta; si no queda ninguna, salta el aviso.
+        const visibles = lista
+          .filter(u => u && u.disponible !== false &&
+            CAMPOS_OBLIGATORIOS.every(c => typeof u[c] === "string" && u[c].trim() !== ""))
+          .sort((a, b) => (Number(a.orden) || 99) - (Number(b.orden) || 99));
+
+        if (!visibles.length) throw new Error("sin unidades disponibles");
+
+        cont.innerHTML = visibles.map(esEquipo ? tarjetaEquipo : tarjetaMaquinaria).join("");
+        cont.querySelectorAll("img").forEach(marcarFotoPendiente);
+        observarRevelados(cont);
+      } catch (error) {
+        console.warn("No se pudo cargar " + cont.dataset.catalogo, error);
+        cont.replaceChildren(avisoCatalogo("No pudimos cargar el catálogo ahora mismo."));
+      } finally {
+        cont.removeAttribute("aria-busy");
+      }
+    }));
+  }
+
+  cargarCatalogo();

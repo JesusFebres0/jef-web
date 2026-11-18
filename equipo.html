@@ -6,12 +6,52 @@
 <title>JeF — Nuestro equipo</title>
 <meta name="description" content="Conoce a los conductores y personal de JeF en Monagas, Venezuela. Equipo profesional de transporte.">
 <meta name="theme-color" content="#FBFBFC">
-<link rel="stylesheet" href="styles.css?v=20261116b">
+<link rel="stylesheet" href="styles.css?v=20261117a">
 <meta property="og:type" content="website">
 <meta property="og:title" content="JeF — Nuestro equipo">
 <meta property="og:description" content="Conoce a los conductores y personal de JeF en Monagas, Venezuela.">
 <meta property="og:locale" content="es_VE">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231B4DF5'/%3E%3Cpath d='M8 9h4.4l3.6 10.2L19.6 9H24l-6.1 15h-3.8z' fill='%23fff'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Equipo de JeF",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Person",
+        "name": "[Nombre del conductor]",
+        "url": "https://jef-web.jesusalejandrofebreslopez.workers.dev/equipo#conductor-1",
+          "jobTitle": "Conductor de carga pesada"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Person",
+        "name": "[Nombre del conductor]",
+        "url": "https://jef-web.jesusalejandrofebreslopez.workers.dev/equipo#conductor-2",
+          "jobTitle": "Conductor de pasajeros"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "Person",
+        "name": "[Nombre del personal]",
+        "url": "https://jef-web.jesusalejandrofebreslopez.workers.dev/equipo#coordinador",
+          "jobTitle": "Coordinador de despachos"
+      }
+    }
+  ]
+}
+</script>
+<noscript><style>.catalogo-cargando{display:none}</style></noscript>
 </head>
 <body>
 <!-- Glifo de WhatsApp compartido (necesario para el botón del menú móvil) -->
@@ -23,7 +63,7 @@
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="index.html" aria-label="JeF, inicio">
-      <img class="brand-logo" src="img/jef-wordmark.webp" alt="JeF — Fuerza y precisión" width="312" height="92">
+      <img class="brand-logo" src="img/jef-wordmark.webp" alt="JeF — Fuerza y precisión" width="476" height="140">
     </a>
 
     <nav class="site-nav" aria-label="Navegación principal">
@@ -73,36 +113,12 @@
         <p>Todas las unidades salen con conductor propio, no con terceros. Así respondemos por cada viaje.</p>
       </div>
 
-      <div class="cards-grid">
-        <!-- COPIAR ESTA TARJETA PARA AÑADIR MÁS PERSONAL -->
-          <!-- src y alt del <img> apuntan a img/ · loading="lazy" va en todas las fotos menos la primera -->
-        <article class="card card--team reveal">
-          <img class="avatar-photo" src="img/conductor-1.webp" alt="[Nombre del conductor]" width="200" height="200">
-          <h3>[Nombre del conductor]</h3>
-          <p class="team-role">Conductor de carga pesada</p>
-          <p class="team-bio">[Biografía breve: años de experiencia, rutas que conoce, licencia que tiene y algo humano (Ej.: de sonido Maturín, 12 años en carreteras de oriente).]</p>
-        </article>
-        <!-- FIN TARJETA -->
-
-        <!-- COPIAR ESTA TARJETA PARA AÑADIR MÁS PERSONAL -->
-        <article class="card card--team reveal">
-          <img class="avatar-photo" src="img/conductor-2.webp" alt="[Nombre del conductor]" width="200" height="200"
-            loading="lazy">
-          <h3>[Nombre del conductor]</h3>
-          <p class="team-role">Conductor de pasajeros</p>
-          <p class="team-bio">[Biografía breve: experiencia en traslados de personal, ciudades que domina y algo humano (Ej.: nacido en Caripito, 8 años de experiencia al volante).]</p>
-        </article>
-        <!-- FIN TARJETA -->
-
-        <!-- COPIAR ESTA TARJETA PARA AÑADIR MÁS PERSONAL -->
-        <article class="card card--team reveal">
-          <img class="avatar-photo" src="img/coordinador.webp" alt="[Nombre del personal]" width="200" height="200"
-            loading="lazy">
-          <h3>[Nombre del personal]</h3>
-          <p class="team-role">Coordinador de despachos</p>
-          <p class="team-bio">[Biografía breve: qué coordina (rutas, horarios, cargas) y cómo atiende al cliente (Ej.: es la persona que te responde por WhatsApp).]</p>
-        </article>
-        <!-- FIN TARJETA -->
+      <div class="cards-grid" data-catalogo="datos/conductores.json" data-tipo="equipo" aria-busy="true">
+        <!-- Las tarjetas se generan desde datos/conductores.json: añade ahí al personal, no aquí. -->
+        <p class="catalogo-cargando">Cargando catálogo…</p>
+        <noscript>
+          <p class="catalogo-aviso">El catálogo necesita JavaScript para mostrarse. <a href="index.html#presupuesto">Pide información aquí</a>.</p>
+        </noscript>
       </div>
     </div>
   </section>
@@ -180,6 +196,6 @@
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="width:22px;height:22px;"><path d="M12 19V6m0 0-6 6m6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
 
-<script src="script.js?v=20261116b" defer></script>
+<script src="script.js?v=20261117a" defer></script>
 </body>
 </html>

@@ -111,7 +111,7 @@
     border-bottom:1px solid var(--line);
     transition:none;
   }
-    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:72px}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:84px}
   .brand{display:inline-flex;align-items:center;gap:.6rem;font-weight:700;letter-spacing:-.03em;font-size:1.12rem}
   .brand-mark{
     width:32px;height:32px;border-radius:9px;flex:none;
@@ -119,7 +119,7 @@
     display:grid;place-items:center;
   }
   .brand-mark svg{width:17px;height:17px}
-  .brand-logo{height:46px;width:auto;display:block;flex:none}
+  .brand-logo{height:56px;width:auto;display:block;flex:none;object-fit:contain}
   .brand-logo--full{height:52px}
   .site-nav{display:flex;align-items:center;gap:1.9rem}
   .site-nav a{
@@ -491,6 +491,26 @@
   .team-role{font-size:.85rem;font-weight:600;color:var(--accent);margin-bottom:.55rem}
   .team-bio{font-size:.92rem;color:var(--muted);line-height:1.6}
 
+  /* ---------- Catálogo dinámico (datos/*.json) ---------- */
+  .catalogo-cargando{
+    grid-column:1/-1;margin:0;padding:1.5rem;text-align:center;
+    color:var(--muted);font-size:.9rem;
+  }
+  .catalogo-aviso{
+    grid-column:1/-1;margin:0;padding:1.25rem 1.4rem;
+    border:1px solid var(--line);border-radius:var(--radius);background:var(--white);
+    text-align:center;color:var(--muted);font-size:.92rem;line-height:1.6;
+  }
+  .catalogo-aviso a{color:var(--accent);font-weight:600;text-decoration:underline}
+  .foto-pendiente{
+    display:grid;place-items:center;width:100%;height:100%;
+    background:#EDEFF3;color:var(--muted);font-size:.8rem;
+    text-align:center;padding:.75rem;line-height:1.2;
+  }
+  .card--team .foto-pendiente{
+    width:76px;height:76px;border-radius:50%;font-size:.62rem;padding:0;
+  }
+
   .cta-flat{text-align:center}
   .cta-flat h2{margin-bottom:1rem}
   .cta-flat .lede{margin:0 auto 1.6rem}
@@ -529,7 +549,6 @@
   }
   @media (max-width:600px){
     .wrap{width:calc(100% - 2rem)}
-    .brand-logo{height:38px}
     .brand-logo--full{height:42px}
     .header-actions .btn{display:none}
     .mobile-nav .btn{display:inline-flex}

@@ -1,0 +1,35 @@
+{
+  "actualizado": "2026-11-17",
+  "conductores": [
+    {
+      "id": "conductor-1",
+      "nombre": "[Nombre del conductor]",
+      "foto": "img/conductor-1.webp",
+      "alt": "[Nombre del conductor]",
+      "capacidad": "Conductor de carga pesada",
+      "detalle": "[Biografía breve: años de experiencia, rutas que conoce, licencia que tiene y algo humano (Ej.: de sonido Maturín, 12 años en carreteras de oriente).]",
+      "disponible": true,
+      "orden": 1
+    },
+    {
+      "id": "conductor-2",
+      "nombre": "[Nombre del conductor]",
+      "foto": "img/conductor-2.webp",
+      "alt": "[Nombre del conductor]",
+      "capacidad": "Conductor de pasajeros",
+      "detalle": "[Biografía breve: experiencia en traslados de personal, ciudades que domina y algo humano (Ej.: nacido en Caripito, 8 años de experiencia al volante).]",
+      "disponible": true,
+      "orden": 2
+    },
+    {
+      "id": "coordinador",
+      "nombre": "[Nombre del personal]",
+      "foto": "img/coordinador.webp",
+      "alt": "[Nombre del personal]",
+      "capacidad": "Coordinador de despachos",
+      "detalle": "[Biografía breve: qué coordina (rutas, horarios, cargas) y cómo atiende al cliente (Ej.: es la persona que te responde por WhatsApp).]",
+      "disponible": true,
+      "orden": 3
+    }
+  ]
+}

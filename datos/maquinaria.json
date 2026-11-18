@@ -1,0 +1,55 @@
+{
+  "actualizado": "2026-11-17",
+  "unidades": [
+    {
+      "id": "camion-350",
+      "nombre": "Camión 350",
+      "foto": "img/camion-350.webp",
+      "alt": "Camión 350",
+      "capacidad": "[Capacidad]",
+      "detalle": "[Describe la unidad: capacidad de carga, qué transporta y cobertura. Ej.: 3 t de carga, servicios a zonas petroleras.]",
+      "disponible": true,
+      "orden": 1
+    },
+    {
+      "id": "retroexcavadora",
+      "nombre": "Retroexcavadora",
+      "foto": "img/retroexcavadora.webp",
+      "alt": "Retroexcavadora",
+      "capacidad": "[Capacidad]",
+      "detalle": "[Describe el equipo: qué trabajos permite hacer y condiciones de trabajo. Ej.: excavación, zanjado y nivelación.]",
+      "disponible": true,
+      "orden": 2
+    },
+    {
+      "id": "camioneta-4x4",
+      "nombre": "Camioneta 4x4",
+      "foto": "img/camioneta-4x4.webp",
+      "alt": "Camioneta 4x4",
+      "capacidad": "[Capacidad]",
+      "detalle": "[Describe la unidad: cuántas personas lleva, carga ligera y terrenos difíciles de acceso.]",
+      "disponible": true,
+      "orden": 3
+    },
+    {
+      "id": "batea",
+      "nombre": "Batea",
+      "foto": "img/batea.webp",
+      "alt": "Batea",
+      "capacidad": "[Capacidad]",
+      "detalle": "[Describe la unidad: cuántas personas lleva, carga ligera y terrenos difíciles de acceso.]",
+      "disponible": true,
+      "orden": 4
+    },
+    {
+      "id": "lowboy",
+      "nombre": "Lowboy",
+      "foto": "img/lowboy.webp",
+      "alt": "Lowboy",
+      "capacidad": "[Capacidad]",
+      "detalle": "[Describe la unidad: cuántas personas lleva, carga ligera y terrenos difíciles de acceso.]",
+      "disponible": true,
+      "orden": 5
+    }
+  ]
+}
